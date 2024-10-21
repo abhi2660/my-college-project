@@ -27,7 +27,7 @@
                 <h1>Crop Recommendation</h1>
                 <img src="{{ url_for('static', filename='card1.jpg') }}" alt="loading">
                 <h2>To See Your Recommended Crop, Click the Button Below</h2>
-                <form action="{{ url_for('form') }}" method="post">
+                <form action="{{ url_for('recommend') }}" method="post">
                     <button name="recommendButton" type="submit">See Recommendation</button>
                 </form>
             </div>

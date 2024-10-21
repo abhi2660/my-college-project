@@ -131,23 +131,23 @@
 
                  <!-- Area input -->
         <label for="area">Area in hectares:</label><br>
-        <input type="int" id="area" name="area" placeholder="Area"><br><br>
+        <input type="number" step="0.01" id="area" name="area" placeholder="Area"><br><br>
         
         <!-- Production input -->
         <label for="production">Production in metric tons:</label><br>
-        <input type="int" id="production" name="production" placeholder="Production" ><br><br>
+        <input type="number" id="production" name="production" placeholder="Production" ><br><br>
         
-        <!-- Annual Rainfall input -->
+        <!-- Annual Rainfall input -->  
         <label for="annual-rainfall">Annual Rainfall in mm:</label><br>
-        <input type="int" id="annual-rainfall" name="annual_rainfall" placeholder="Annual_Rainfall"><br><br>
+        <input type="number" step="0.01" id="annual-rainfall" name="annual_rainfall" placeholder="Annual_Rainfall"><br><br>
         
         <!-- Fertilizer input -->
         <label for="fertilizer">Fertilizer in kilograms:</label><br>
-        <input type="int" id="fertilizer" name="fertilizer" placeholder="Fertilizer"><br><br>
+        <input type="number" step="0.01" id="fertilizer" name="fertilizer" placeholder="Fertilizer"><br><br>
         
         <!-- Pesticide input -->
         <label for="pesticide">Pesticide in kilograms:</label><br>
-        <input type="int" id="pesticide" name="pesticide" placeholder="Pesticide"><br><br>
+        <input type="number" step="0.01" id="pesticide" name="pesticide" placeholder="Pesticide"><br><br>
 
 
             <button name="submitButton" type="submit">Predict</button>
