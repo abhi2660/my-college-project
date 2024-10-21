@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prediction done</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='predict.css') }}">
+    
+</head>
+   <body>
+    
+       <div class="card">
+            <img src="{{url_for('static', filename='card1.jpg')}}" alt="loading">   
+            <h1>Based on your data, predicted yield is {{result}}</h1>
+       </div>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+
+</head>
+<body>
+
+    <div class="main-card">
+        <h1 class="main-title">Crop Yield Prediction And Crop Recommendation</h1>
+        <div class="container">
+            <!-- Crop Yield Prediction Card -->
+            <div class="card">
+                <h1>Crop Yield Prediction</h1>
+                <img src="{{ url_for('static', filename='card1.jpg') }}" alt="loading">
+                <h2>To Predict Your Yield, Click the Button Below</h2>
+                <form action="{{ url_for('form') }}" method="post">
+                    <button name="predictdButton" type="submit">Predict</button>
+                </form>
+            </div>
+
+            <!-- Crop Recommendation Card -->
+            <div class="card">
+                <h1>Crop Recommendation</h1>
+                <img src="{{ url_for('static', filename='card1.jpg') }}" alt="loading">
+                <h2>To See Your Recommended Crop, Click the Button Below</h2>
+                <form action="{{ url_for('form') }}" method="post">
+                    <button name="recommendButton" type="submit">See Recommendation</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

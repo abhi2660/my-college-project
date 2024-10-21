@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Yield Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='form.css') }}">
+</head>
+<body>
+
+    <div class="container1">
+
+
+        <div class="container">
+        
+
+         <form action="{{url_for('submit')}}" method="post">
+
+            
+            <label  for="crop-select">Choose a crop:</label><br>
+            <select id="crop-select" name="crops">
+                        <option value="1">Arecanut</option>
+                        <option value="2">Arhar/Tur</option>
+                        <option value="3">Castor seed</option>
+                        <option value="4">Coconut</option>
+                        <option value="5">Cotton(lint)</option>
+                        <option value="6">Dry chillies</option>
+                        <option value="7">Gram</option>
+                        <option value="8">Jute</option>
+                        <option value="9">Linseed</option>
+                        <option value="10">Maize</option>
+                        <option value="11">Mesta</option>
+                        <option value="12">Niger seed</option>
+                        <option value="13">Onion</option>
+                        <option value="14">Other Rabi pulses</option>
+                        <option value="15">Potato</option>
+                        <option value="16">Rapeseed & Mustard</option>
+                        <option value="17">Rice</option>
+                        <option value="18">Sesamum</option>
+                        <option value="19">Small millets</option>
+                        <option value="20">Sugarcane</option>
+                        <option value="21">Sweet potato</option>
+                        <option value="22">Tapioca</option>
+                        <option value="23">Tobacco</option>
+                        <option value="24">Turmeric</option>
+                        <option value="25">Wheat</option>
+                        <option value="26">Bajra</option>
+                        <option value="27">Black pepper</option>
+                        <option value="28">Cardamom</option>
+                        <option value="29">Coriander</option>
+                        <option value="30">Garlic</option>
+                        <option value="31">Ginger</option>
+                        <option value="32">Groundnut</option>
+                        <option value="33">Horse-gram</option>
+                        <option value="34">Jowar</option>
+                        <option value="35">Ragi</option>
+                        <option value="36">Cashewnut</option>
+                        <option value="37">Banana</option>
+                        <option value="38">Soyabean</option>
+                        <option value="39">Barley</option>
+                        <option value="40">Khesari</option>
+                        <option value="41">Masoor</option>
+                        <option value="42">Moong(Green Gram)</option>
+                        <option value="43">Other Kharif pulses</option>
+                        <option value="44">Safflower</option>
+                        <option value="45">Sannhamp</option>
+                        <option value="46">Sunflower</option>
+                        <option value="47">Urad</option>
+                        <option value="48">Peas & beans (Pulses)</option>
+                        <option value="49">Other oilseeds</option>
+                        <option value="50">Other Cereals</option>
+                        <option value="51">Cowpea(Lobia)</option>
+                        <option value="52">Oilseeds total</option>
+                        <option value="53">Guar seed</option>
+                        <option value="54">Other Summer Pulses</option>
+                        <option value="55">Moth</option>
+            </select>
+            
+            <br>
+            <br>
+
+            <label for="season-select">Choose a season:</label><br>
+            <select id="season-select" name="seasons">
+                <option value="1">Whole Year</option>
+                <option value="2">Kharif</option>
+                <option value="3">Rabi</option>
+                <option value="4">Autumn</option>
+                <option value="5">Summer</option>
+                <option value="6">Winter</option>
+            </select>
+
+            <br>
+            <br>
+            
+            <label for="state-select">Choose a state:</label><br>
+            <select id="state-select" name="states">
+        <option value="1">Assam</option>
+        <option value="2">Karnataka</option>
+        <option value="3">Kerala</option>
+        <option value="4">Meghalaya</option>
+        <option value="5">West Bengal</option>
+        <option value="6">Puducherry</option>
+        <option value="7">Goa</option>
+        <option value="8">Andhra Pradesh</option>
+        <option value="9">Tamil Nadu</option>
+        <option value="10">Odisha</option>
+        <option value="11">Bihar</option>
+        <option value="12">Gujarat</option>
+        <option value="13">Madhya Pradesh</option>
+        <option value="14">Maharashtra</option>
+        <option value="15">Mizoram</option>
+        <option value="16">Punjab</option>
+        <option value="17">Uttar Pradesh</option>
+        <option value="18">Haryana</option>
+        <option value="19">Himachal Pradesh</option>
+        <option value="20">Tripura</option>
+        <option value="21">Nagaland</option>
+        <option value="22">Chhattisgarh</option>
+        <option value="23">Uttarakhand</option>
+        <option value="24">Jharkhand</option>
+        <option value="25">Delhi</option>
+        <option value="26">Manipur</option>
+        <option value="27">Jammu and Kashmir</option>
+        <option value="28">Telangana</option>
+        <option value="29">Arunachal Pradesh</option>
+        <option value="30">Sikkim</option>
+            </select>
+
+            <br>
+            <br>
+
+                 <!-- Area input -->
+        <label for="area">Area in hectares:</label><br>
+        <input type="int" id="area" name="area" placeholder="Area"><br><br>
+        
+        <!-- Production input -->
+        <label for="production">Production in metric tons:</label><br>
+        <input type="int" id="production" name="production" placeholder="Production" ><br><br>
+        
+        <!-- Annual Rainfall input -->
+        <label for="annual-rainfall">Annual Rainfall in mm:</label><br>
+        <input type="int" id="annual-rainfall" name="annual_rainfall" placeholder="Annual_Rainfall"><br><br>
+        
+        <!-- Fertilizer input -->
+        <label for="fertilizer">Fertilizer in kilograms:</label><br>
+        <input type="int" id="fertilizer" name="fertilizer" placeholder="Fertilizer"><br><br>
+        
+        <!-- Pesticide input -->
+        <label for="pesticide">Pesticide in kilograms:</label><br>
+        <input type="int" id="pesticide" name="pesticide" placeholder="Pesticide"><br><br>
+
+
+            <button name="submitButton" type="submit">Predict</button>
+          </form>
+
+        </div>
+
+    </div>
+</body>
+</html>

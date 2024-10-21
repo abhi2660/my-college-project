@@ -1,0 +1,79 @@
+*{ 
+    margin: 0;
+    padding: 0;
+}
+
+
+      /* Main container to center the card */
+      .container1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        background-color: #f4f4f4;
+       
+    }
+
+    /* Card styling */
+    .container {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        background-color: antiquewhite;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 40%;
+        padding: 20px;
+        text-align: left;
+    }
+
+    /* Form element styling */
+    label {
+        font-weight: bold;
+        font-size: large;
+        /* margin-bottom: 5px; */
+        display: block;
+        color: #333;
+    }
+
+    select, input[type="number"], input[type="int"] {
+        width: 100%;
+        padding: 10px;
+        /* margin-bottom: 15px; */
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+
+    /* Button styling */
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    button:hover {
+        background-color: #218838;
+    }
+
+    /* Form heading */
+    h1 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    /* Responsive design for mobile */
+    @media (max-width: 500px) {
+        .container {
+            width: 100%;
+            margin: 20px;
+        }
+    }
