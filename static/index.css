@@ -7,16 +7,22 @@ body {
   justify-content: center; /* Centers content horizontally */
   align-items: center; /* Centers content vertically */
   min-height: 100vh; /* Full height of viewport */
+  
 }
 
 .main-card {
   background-color: #fff;
   border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(250, 3, 3, 0.5);
   padding: 40px;
   text-align: center;
   max-width: 1200px; /* Maximum width of the card */
   width: 90%; /* Responsive width */
+  transition: transform 0.3s;
+}
+
+.main-card:hover {
+  transform: scale(1.05); /* Slightly enlarge card on hover */
 }
 
 h1.main-title {
@@ -32,10 +38,11 @@ h1.main-title {
   flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
+
 .card {
   background-color: #fff;
   border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(188, 229, 84, 0.5);
   padding: 30px;
   text-align: center;
   width: 45%; /* Width of cards */

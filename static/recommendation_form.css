@@ -14,12 +14,17 @@ body {
     margin-bottom: 5%;
     background-color: antiquewhite;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgb(225, 55, 55);
     padding: 20px;
     width: 100%;
     max-width: 600px;  /* Limits the card width */
     min-width: 300px;  /* Ensures the card doesn't shrink too much */
+    transition: transform 0.3s;
 }
+
+.container:hover {
+    transform: scale(1.05); /* Slightly enlarge card on hover */
+  }
 
 .container form label {
     display: block;
@@ -56,6 +61,24 @@ h2 {
     color: #333;
     margin-bottom: 20px;
 }
+
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {

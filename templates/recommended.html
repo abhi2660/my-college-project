@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>recommended crop</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='recommended.css') }}">
 </head>
 <body>
+
+    <div class="card">
+        <img src="{{url_for('static', filename='card1.jpg')}}" alt="loading">   
+        <h1>Based on your data, predicted crop is {{crop}}</h1>
+   </div>
     
 </body>
 </html>

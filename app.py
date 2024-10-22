@@ -6,6 +6,11 @@ import pickle
 with open('cropPrediction.pkl','rb') as file:
     model=pickle.load(file)
 
+
+
+with open('crop_recommendation.pkl','rb') as file:
+     model1=pickle.load(file)  
+
 app=Flask(__name__)
 
 
@@ -22,9 +27,9 @@ def form():
      return render_template("form.html")
 
 # @app.route('/prediction/<int:result>')
-@app.route('/prediction')
-def result(result):
-     return "the yield is "+ str(result)
+# @app.route('/prediction')
+# def result(result):
+#      return "the yield is "+ str(result)
 
 @app.route('/yield',methods=['GET','POST'])
 def submit():
@@ -84,10 +89,65 @@ def submit():
            # return redirect(url_for("result",result=y1))
 
            # return render_template('predict.html')
+
+
+
+
+label_mapping={
+    'Rice':1, 'Maize':2, 'Chickpea':3, 'Kidneybeans':4, 'Pigeonpeas':5, 'Mothbeans':6,
+ 'Mungbean':7, 'Blackgram':8, 'Lentil':9, 'Pomegranate':10, 'Banana':11, 'Mango':12, 'Grapes':12,
+ 'Watermelon':13, 'Muskmelon':14, 'Apple':15, 'Orange':16, 'Papaya':17, 'Coconut':18, 'Cotton':19,
+ 'Jute':21, 'Coffee':22
+}
+
             
-         
+@app.route('/recommendation',methods=['GET','POST'])
+def recommend():
+          return render_template('recommendation_form.html')
+
+@app.route('/crop',methods=["GET","POST"])
+def think():
+     if request.method=="GET":
+          return render_template('recommendation_form.html')
+     else:
+          try:
+              nitrogen=int(request.form["nitrogen"])
+              phosphorous=int(request.form["phosphorous"])
+              potassium=int(request.form["potassium"])
+              temperature=float(request.form["temperature"])
+              humidity=float(request.form["humidity"])
+              ph=float(request.form["ph"])
+              rainfall=float(request.form["rainfall"])
+          
+          except ValueError as e:
+               print("Invalid input:", e)
+               return "Error: Please provide valid inputs."
+          
+          print(nitrogen,phosphorous,potassium,temperature,humidity,ph,rainfall)
+
+          data1=(nitrogen,phosphorous,potassium,temperature,humidity,ph,rainfall)
+          data1_as_array=np.asarray(data1)
+          data1_as_array_reshape=data1_as_array.reshape(1,-1)
+
+          try: 
+              y2=model1.predict(data1_as_array_reshape)
+              value_to_find = int(y2[0])
+
+              keys = [key for key, value in label_mapping.items() if value == value_to_find]
+              
+              print("Predicted Yield",keys[0])
+            
+          except Exception as e:
+                print("Error during prediction:", e)
+                return "Error: Could not predict yield."
+          
+          return render_template('recommended.html',crop=keys[0])
+          
         
-       
+          
+    
+
+
 
 
 
