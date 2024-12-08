@@ -1,5 +1,6 @@
 from flask import Flask,request,render_template,redirect,url_for
 import numpy as np
+import pandas as pd
 import pickle
 
 
@@ -11,6 +12,27 @@ with open('cropPrediction.pkl','rb') as file:
 with open('crop_recommendation.pkl','rb') as file:
      model1=pickle.load(file)  
 
+
+
+
+with open('modified_df.pkl', 'rb') as f1:
+    loaded_df = pickle.load(f1)
+
+
+def rain_check(df, state):
+    filtered_df = df[df['SUBDIVISION'] == state]
+    max_row = filtered_df[filtered_df['ANNUAL'] == filtered_df['ANNUAL'].max()]
+    # print(max_row)
+    result_dict = max_row.to_dict(orient='records')[0]
+    print (result_dict)
+
+with open('rain_check.pkl', 'rb') as f:
+    try:
+        loaded_function = pickle.load(f)
+        loaded_function(loaded_df,2)  # Call the loaded function
+    except EOFError:
+        print("The pickle file is empty or corrupted.")
+
 app=Flask(__name__)
 
 
@@ -20,6 +42,7 @@ app=Flask(__name__)
 
 @app.route('/',methods=['GET'])
 def start():
+    # model2.rain_check(1)
     return render_template('index.html')
 
 @app.route('/form',methods=['GET','POST'])
