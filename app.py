@@ -166,16 +166,31 @@ def think():
           
           return render_template('recommended.html',crop=keys[0])
           
-        
+
+
+@app.route('/rain',methods=['GET','POST'])
+def rain():
+        #   if request.method=='GET':
+        #     return render_template('rain_form.html')
           
-    
+        return render_template('rain_form.html')
 
 
+@app.route('/rain_prediction',methods=['GET','POST'])
+def prediction():
+          if request.method=="GET":
+            return render_template('rain_form.html')
+          
+          else:
+               return render_template('rain_prediction.html')
+     
+        
 
 
 
 
 if __name__=="__main__":
       app.run(debug=True)
+
 
 
