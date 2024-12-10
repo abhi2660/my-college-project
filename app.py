@@ -18,25 +18,26 @@ with open('crop_recommendation.pkl','rb') as file:
 with open('modified_df.pkl', 'rb') as f1:
     loaded_df = pickle.load(f1)
 
-
 def rain_check(df, state):
+    # print(state)
     filtered_df = df[df['SUBDIVISION'] == state]
+    # print(filtered_df)
     max_row = filtered_df[filtered_df['ANNUAL'] == filtered_df['ANNUAL'].max()]
     # print(max_row)
+    # result_dict = max_row.to_dict(orient='records')
     result_dict = max_row.to_dict(orient='records')[0]
-    print (result_dict)
+    # print(result_dict)
+    return result_dict
+
 
 with open('rain_check.pkl', 'rb') as f:
     try:
         loaded_function = pickle.load(f)
-        loaded_function(loaded_df,2)  # Call the loaded function
+        # loaded_function(loaded_df,2)  # Call the loaded function
     except EOFError:
         print("The pickle file is empty or corrupted.")
 
 app=Flask(__name__)
-
-
-
 
 
 
@@ -90,15 +91,15 @@ def submit():
                print("Invalid input:", e)
                return "Error: Please provide valid inputs."
 
-            print(crop,season,state,area,production,annual_rainfall,fertilizer,pesticide)
 
+            print(crop,season,state,area,production,annual_rainfall,fertilizer,pesticide)
             data=(crop,season,state,area,production,annual_rainfall,fertilizer,pesticide)
             data_as_array=np.asarray(data)
             data_as_array_reshape=data_as_array.reshape(1,-1)
  
             try: 
               y1=model.predict(data_as_array_reshape)
-              print("Predicted Yield",y1[0])
+            #   print("Predicted Yield",y1[0])
             
             except Exception as e:
                 print("Error during prediction:", e)
@@ -182,15 +183,26 @@ def prediction():
             return render_template('rain_form.html')
           
           else:
-               return render_template('rain_prediction.html')
+               state=int(request.form["location"])
+            #    print(state)
+            #    print(loaded_df)
+              
+               predict=rain_check(loaded_df,state)
+               del predict["SUBDIVISION"]
+            #    print(predict)
+            #    predict_str = "\n".join(f"{key}: {value}" for key, value in predict.items())
+            #    print(predict_str)
+               
+               return render_template('rain_prediction.html',rain=predict)
      
         
 
 
 
 
-if __name__=="__main__":
-      app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
+
 
 
 
