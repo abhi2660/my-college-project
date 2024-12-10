@@ -9,6 +9,21 @@
 </head>
 <body>
 
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="brand">
+          <a href="#">Crop Management</a>
+        </div>
+        <div class="menu-toggle" id="menuToggle">☰</div>
+        <div class="menu" id="menu">
+          <a href="{{ url_for('start') }}">Home</a>
+          <a href="{{ url_for('form') }}">Predict</a>
+          <a href="{{ url_for('recommend') }}">Recommend</a>
+          <a href="{{ url_for('rain')  }}">Rain</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+
     <div class="card">
         <img src="{{url_for('static', filename='card1.jpg')}}" alt="loading">   
         <h1>Based on your data, predicted crop is {{crop}}</h1>

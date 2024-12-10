@@ -3,9 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Water Level</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='rain_prediction.css') }}">
+
 </head>
 <body>
-    <h1>rain predicted</h1>
+      <!-- Navbar -->
+      <nav class="navbar">
+        <div class="brand">
+          <a href="#">Crop Management</a>
+        </div>
+        <div class="menu-toggle" id="menuToggle">☰</div>
+        <div class="menu" id="menu">
+          <a href="{{ url_for('start') }}">Home</a>
+          <a href="{{ url_for('form') }}">Predict</a>
+          <a href="{{ url_for('recommend') }}">Recommend</a>
+          <a href="{{ url_for('rain')  }}">Rain</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+
+
+      <div class="card">
+        <div class="card-header">
+            <h1>Water Level in Your Location</h1>
+        </div>
+        <div class="card-content">
+            <div class="grid">
+                {% for key, value in rain.items() %}
+                    <div class="grid-item">
+                        <strong>{{ key }}</strong><br>
+                        {{ value }} mm
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </body>
 </html>
