@@ -1,150 +1,154 @@
 *{ 
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 
-      /* Main container to center the card */
-      .container1 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        background-color: #f4f4f4;
-        margin-top: 30px;
-       
-    }
-
-    /* Card styling */
-    .container {
-        margin-top: 5%;
-        margin-bottom: 5%;
-        background-color: antiquewhite;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 40%;
-        padding: 20px;
-        text-align: left;
-    }
-
-    /* Form element styling */
-    label {
-        font-weight: bold;
-        font-size: large;
-        /* margin-bottom: 5px; */
-        display: block;
-        color: #333;
-    }
-
-    select, input[type="number"], input[type="int"] {
-        width: 100%;
-        padding: 10px;
-        /* margin-bottom: 15px; */
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-sizing: border-box;
-        font-size: 14px;
-    }
-
-    /* Button styling */
-    button {
-        width: 100%;
-        padding: 10px;
-        background-color: #28a745;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        font-weight: bold;
-    }
-
-    button:hover {
-        background-color: #218838;
-    }
-
-    /* Form heading */
-    h1 {
-        font-size: 24px;
-        color: #333;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-    /* Responsive design for mobile */
-    @media (max-width: 500px) {
-        .container {
-            width: 100%;
-            margin: 20px;
-        }
-    }
-
-
-
-
-
-
-
-
-
-    
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    color: white;
-    padding: 20px 5px;
-    position: fixed; /* Fixed position */
-    top: 0; /* Sticks to the top */
-    left: 0;
-    width: 100%; /* Full-width */
-    z-index: 1000; /* Keeps it above other content */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
-  }
-  
-  .navbar a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 12px;
-    margin-right: 15px;
-  }
-  
-  .navbar a:hover {
-    background-color: #575757;
-    border-radius: 5px;
-  }
-  
-  .menu {
-    display: flex;
-    gap: 15px;
-  }
-  
-  .menu-toggle {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .menu {
-      display: none;
-      flex-direction: column;
-      background-color: #333;
-      position: absolute;
-      top: 60px;
-      right: 20px;
-      width: 200px;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    }
-  
-    .menu.active {
+    /* Main container to center the card */
+    .container1 {
       display: flex;
-    }
-  
-    .menu-toggle {
-      display: block;
-    }
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      background-color: #f4f4f4;
+      margin-top: 30px;
+     
   }
+
+  /* Card styling */
+  .container {
+      margin-top: 5%;
+      margin-bottom: 5%;
+      background-color: antiquewhite;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgb(225, 55, 55);
+      width: 40%;
+      padding: 20px;
+      text-align: left;
+  }
+
+  .container:hover {
+    transform: scale(1.05); /* Slightly enlarge card on hover */
+  }
+
+  /* Form element styling */
+  label {
+      font-weight: bold;
+      font-size: large;
+      /* margin-bottom: 5px; */
+      display: block;
+      color: #333;
+  }
+
+  select, input[type="number"], input[type="int"] {
+      width: 100%;
+      padding: 10px;
+      /* margin-bottom: 15px; */
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 14px;
+  }
+
+  /* Button styling */
+  button {
+      width: 100%;
+      padding: 10px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+  }
+
+  button:hover {
+      background-color: #218838;
+  }
+
+  /* Form heading */
+  h1 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+      text-align: center;
+  }
+
+  /* Responsive design for mobile */
+  @media (max-width: 500px) {
+      .container {
+          width: 100%;
+          margin: 20px;
+      }
+  }
+
+
+
+
+
+
+
+
+
+  
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 20px 5px;
+  position: fixed; /* Fixed position */
+  top: 0; /* Sticks to the top */
+  left: 0;
+  width: 100%; /* Full-width */
+  z-index: 1000; /* Keeps it above other content */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 12px;
+  margin-right: 15px;
+}
+
+.navbar a:hover {
+  background-color: #575757;
+  border-radius: 5px;
+}
+
+.menu {
+  display: flex;
+  gap: 15px;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    background-color: #333;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 200px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
